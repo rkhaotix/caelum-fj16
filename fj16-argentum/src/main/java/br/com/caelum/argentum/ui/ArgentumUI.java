@@ -3,18 +3,24 @@ package br.com.caelum.argentum.ui;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import br.com.caelum.argentum.Negocio;
 
 import napkin.NapkinLookAndFeel;
 
 public class ArgentumUI {
 	private JFrame janela;
 	private JPanel painelPrincipal;
+	private JTable tabela;
 	
 	public static void main(String[] args) {
 	    new ArgentumUI().montaTela();
@@ -23,9 +29,19 @@ public class ArgentumUI {
 	private void montaTela() {
 		preparaJanela();
 		preparaPainelPrincipal();
+		preparaTabela();
 		preparaBotaoCarregar();
 		preparaBotaoSair();
 		mostraJanela();
+	}
+
+	private void preparaTabela() {
+		tabela = new JTable();
+		
+		JScrollPane scroll = new JScrollPane();
+		scroll.getViewport().add(tabela);
+		
+		painelPrincipal.add(scroll);
 	}
 
 	private void preparaJanela() {
@@ -45,7 +61,9 @@ public class ArgentumUI {
 		botaoCarregar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new EscolhedorDeXML().escolhe();
+				List<Negocio> lista = new EscolhedorDeXML().escolhe();
+				NegociosTableModel ntm = new NegociosTableModel(lista);
+				tabela.setModel(ntm);
 			}
 		});
 		painelPrincipal.add(botaoCarregar);		
