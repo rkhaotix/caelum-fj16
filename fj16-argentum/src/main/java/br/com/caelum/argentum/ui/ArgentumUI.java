@@ -1,15 +1,18 @@
 package br.com.caelum.argentum.ui;
 
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -29,6 +32,7 @@ public class ArgentumUI {
 	private void montaTela() {
 		preparaJanela();
 		preparaPainelPrincipal();
+		preparaTitulo();
 		preparaTabela();
 		preparaBotaoCarregar();
 		preparaBotaoSair();
@@ -81,17 +85,14 @@ public class ArgentumUI {
 		});
 		painelPrincipal.add(botaoSair);
 	}
+	
+	private void preparaTitulo() {
+		JLabel titulo = new JLabel("Lista de Negócios", SwingConstants.CENTER);
+		titulo.setFont(new Font("Verdana", Font.BOLD, 25));
+		painelPrincipal.add(titulo);
+	}
 
 	private void mostraJanela() {
-	    /* try {
-	        UIManager.setLookAndFeel(new NapkinLookAndFeel());
-	        SwingUtilities.updateComponentTreeUI(janela);
-	    } 
-	    catch (Exception e) { 
-	    	
-	    } */
-
-		
 		janela.pack();
 		janela.setSize(540, 540);
 		janela.setVisible(true);
