@@ -21,8 +21,8 @@ public class TestaGrafico {
 												8,9,10,11,10,6,3,2,6,7,8,9);
 		
 		GeradorDeGrafico g = new GeradorDeGrafico(serie, 3, 32);
-		g.plotaIndicador(new MediaMovelSimples());
-		g.plotaIndicador(new MediaMovelPonderada());
+		g.plotaIndicador(new MediaMovelSimples(new IndicadorFechamento()));
+		g.plotaIndicador(new MediaMovelPonderada(new IndicadorFechamento()));
 		g.plotaIndicador(new IndicadorFechamento());
 		g.plotaIndicador(new IndicadorMaximo());
 		g.plotaIndicador(new IndicadorAbertura());

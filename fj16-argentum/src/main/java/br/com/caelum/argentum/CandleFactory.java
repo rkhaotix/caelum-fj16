@@ -34,7 +34,7 @@ public class CandleFactory {
 		return (new Candle(abertura, fechamento, min, max, volume, data));
 	}
 
-	public List<Candle> constroiCandleParaData(List<Negocio> todosNegocios) {
+	public List<Candle> constroiCandles(List<Negocio> todosNegocios) {
 		List<Candle> candles = new ArrayList<Candle>();
 		
 		List<Negocio> negociosDoDia = new ArrayList<Negocio>();

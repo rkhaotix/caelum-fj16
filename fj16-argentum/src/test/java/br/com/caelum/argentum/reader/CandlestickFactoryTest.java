@@ -136,7 +136,7 @@ public class CandlestickFactoryTest {
 		List<Negocio> negocios = Arrays.asList(n1,n2,n3,n4,n5,n6,n7,n8);
 		
 		CandleFactory fabrica = new CandleFactory();
-		List<Candle> candles = fabrica.constroiCandleParaData(negocios);
+		List<Candle> candles = fabrica.constroiCandles(negocios);
 		
 		Assert.assertEquals(3, candles.size());
 		Assert.assertEquals(40.5, candles.get(0).getAbertura(), 0.00001);
@@ -171,7 +171,7 @@ public class CandlestickFactoryTest {
 		List<Negocio> negocios = Arrays.asList(n1,n7,n2,n3,n5,n6,n8,n4);
 		
 		CandleFactory fabrica = new CandleFactory();
-		List<Candle> candles = fabrica.constroiCandleParaData(negocios);
+		List<Candle> candles = fabrica.constroiCandles(negocios);
 		
 		Assert.assertEquals(3, candles.size());
 		Assert.assertEquals(40.5, candles.get(0).getAbertura(), 0.00001);
