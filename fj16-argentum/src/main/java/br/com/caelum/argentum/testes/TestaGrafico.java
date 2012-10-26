@@ -11,6 +11,7 @@ import br.com.caelum.argentum.indicadores.GeradorDeSerie;
 import br.com.caelum.argentum.indicadores.IndicadorAbertura;
 import br.com.caelum.argentum.indicadores.IndicadorFechamento;
 import br.com.caelum.argentum.indicadores.IndicadorMaximo;
+import br.com.caelum.argentum.indicadores.MediaMovelPonderada;
 import br.com.caelum.argentum.indicadores.MediaMovelSimples;
 
 public class TestaGrafico {
@@ -21,9 +22,10 @@ public class TestaGrafico {
 		
 		GeradorDeGrafico g = new GeradorDeGrafico(serie, 3, 32);
 		g.plotaIndicador(new MediaMovelSimples());
+		g.plotaIndicador(new MediaMovelPonderada());
 		g.plotaIndicador(new IndicadorFechamento());
-		//g.plotaIndicador(new IndicadorMaximo());
-		//g.plotaIndicador(new IndicadorAbertura());
+		g.plotaIndicador(new IndicadorMaximo());
+		g.plotaIndicador(new IndicadorAbertura());
 		g.salva(new FileOutputStream("grafico.png"));
 		
 		JFrame frame = new JFrame("Minha janela");

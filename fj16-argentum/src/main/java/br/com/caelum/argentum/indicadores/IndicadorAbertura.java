@@ -9,4 +9,8 @@ public class IndicadorAbertura implements Indicador {
 		return serie.getCandle(posicao).getAbertura();
 	}
 
+	@Override
+	public String toString() {
+		return "Abertura";
+	}
 }

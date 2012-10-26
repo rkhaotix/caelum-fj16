@@ -9,4 +9,8 @@ public class IndicadorMaximo implements Indicador {
 		return serie.getCandle(posicao).getMaximo();
 	}
 
+	@Override
+	public String toString() {
+		return "Máximo";
+	}
 }

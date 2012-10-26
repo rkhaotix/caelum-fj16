@@ -15,4 +15,9 @@ public class MediaMovelPonderada implements Indicador {
 		
 		return soma / 6;
 	}
+	
+	@Override
+	public String toString() {
+		return "Média móvel ponderada do fechamento";
+	}
 }

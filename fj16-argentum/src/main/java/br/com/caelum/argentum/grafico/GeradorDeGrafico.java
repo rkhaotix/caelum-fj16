@@ -33,7 +33,7 @@ public class GeradorDeGrafico {
 													"Dias", "Valores", dados,
 													PlotOrientation.VERTICAL,
 													true, true, false);
-		}
+	}
 
 	public void plotaIndicador(Indicador ind) {
 		for (int i = comeco; i <= fim; i++) {
