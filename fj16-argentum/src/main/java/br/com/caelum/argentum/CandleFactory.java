@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Calendar;
 
 
-public class CandlestickFactory {
+public class CandleFactory {
 	
-	public Candlestick constroiCandleParaData(Calendar data, List<Negocio> negocios) {
+	public Candle constroiCandleParaData(Calendar data, List<Negocio> negocios) {
 		double volume = 0;
 		double min = Double.MAX_VALUE;
 		double max = Double.MIN_VALUE;
@@ -31,11 +31,11 @@ public class CandlestickFactory {
 			}
 		}
 		
-		return (new Candlestick(abertura, fechamento, min, max, volume, data));
+		return (new Candle(abertura, fechamento, min, max, volume, data));
 	}
 
-	public List<Candlestick> constroiCandleParaData(List<Negocio> todosNegocios) {
-		List<Candlestick> candles = new ArrayList<Candlestick>();
+	public List<Candle> constroiCandleParaData(List<Negocio> todosNegocios) {
+		List<Candle> candles = new ArrayList<Candle>();
 		
 		List<Negocio> negociosDoDia = new ArrayList<Negocio>();
 		Calendar dataAtual = todosNegocios.get(0).getData();
@@ -45,8 +45,7 @@ public class CandlestickFactory {
 				throw new IllegalStateException("negocios em ordem incorreta");
 			
 			if (!negocio.isMesmoDia(dataAtual)) {
-				Candlestick candleDoDia = constroiCandleParaData(dataAtual, negociosDoDia);
-				candles.add(candleDoDia);
+				criaEGuardaCandle(candles, negociosDoDia, dataAtual);
 				negociosDoDia = new ArrayList<Negocio>();
 				dataAtual = negocio.getData();
 			}
@@ -54,11 +53,16 @@ public class CandlestickFactory {
 			negociosDoDia.add(negocio);
 		}
 		
-		Candlestick candleDoDia = constroiCandleParaData(dataAtual, negociosDoDia);
-		candles.add(candleDoDia);
+		criaEGuardaCandle(candles, negociosDoDia, dataAtual);
 		
 		return candles;
 		
+	}
+
+	private void criaEGuardaCandle(List<Candle> candles,
+			List<Negocio> negociosDoDia, Calendar dataAtual) {
+		Candle candleDoDia = constroiCandleParaData(dataAtual, negociosDoDia);
+		candles.add(candleDoDia);
 	}
 
 }

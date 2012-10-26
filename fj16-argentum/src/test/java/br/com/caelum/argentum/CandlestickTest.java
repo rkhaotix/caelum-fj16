@@ -12,17 +12,17 @@ public class CandlestickTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void precoMaximoNaoPodeSerMenorQueMinimo() {
-		new Candlestick(1,2,10,5,1,Calendar.getInstance());
+		new Candle(1,2,10,5,1,Calendar.getInstance());
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void naoPodeTerAtributosNegativos() {
-		new Candlestick(1,-2,10,5,1,Calendar.getInstance());
+		new Candle(1,-2,10,5,1,Calendar.getInstance());
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void naoPodeTerDataNula() {
-		new Candlestick(1,2,10,5,1,null);
+		new Candle(1,2,10,5,1,null);
 	}
 
 }
