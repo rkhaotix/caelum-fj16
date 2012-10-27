@@ -14,7 +14,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import br.com.caelum.argentum.SerieTemporal;
 import br.com.caelum.argentum.indicadores.Indicador;
-import br.com.caelum.argentum.indicadores.MediaMovelSimples;
 
 public class GeradorDeGrafico {
 

@@ -1,6 +1,5 @@
 package br.com.caelum.argentum.indicadores;
 
-import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.SerieTemporal;
 
 public class MediaMovelPonderada implements Indicador {

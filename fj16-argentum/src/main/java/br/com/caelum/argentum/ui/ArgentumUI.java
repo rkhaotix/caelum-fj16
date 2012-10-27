@@ -1,14 +1,12 @@
 package br.com.caelum.argentum.ui;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,8 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.CandleFactory;
@@ -30,8 +26,6 @@ import br.com.caelum.argentum.indicadores.IndicadorFechamento;
 import br.com.caelum.argentum.indicadores.IndicadorMaximo;
 import br.com.caelum.argentum.indicadores.MediaMovelPonderada;
 import br.com.caelum.argentum.indicadores.MediaMovelSimples;
-
-import napkin.NapkinLookAndFeel;
 
 public class ArgentumUI {
 	private JFrame janela;
@@ -114,7 +108,7 @@ public class ArgentumUI {
 		});
 		painelBotoes.add(botaoSair);
 	}
-	
+
 	private void preparaTitulo() {
 		JLabel titulo = new JLabel("Lista de Negócios", SwingConstants.CENTER);
 		titulo.setFont(new Font("Verdana", Font.BOLD, 25));
@@ -129,8 +123,8 @@ public class ArgentumUI {
 
 	private void carregaDados() {
 		List<Negocio> lista = new EscolhedorDeXML().escolhe();
-		NegociosTableModel ntm = new NegociosTableModel(lista);
-		tabela.setModel(ntm);
+		ArgentumTableModel model = new ArgentumTableModel(lista);
+		tabela.setModel(model);
 		
 		CandleFactory fabrica = new CandleFactory();
 		List<Candle> candles = fabrica.constroiCandles(lista);
